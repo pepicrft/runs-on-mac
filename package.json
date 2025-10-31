@@ -1,0 +1,15 @@
+{
+  "name": "runs-on-mac",
+  "version": "1.0.0",
+  "description": "The story of CI and the runs-on revolution",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": ["ci", "runners", "mac"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

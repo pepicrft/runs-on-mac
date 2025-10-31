@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>runs-on: mac</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            line-height: 1.9;
+            background: #FAF8F3;
+            color: #2C2416;
+            padding: 3rem 2rem;
+            font-size: 14px;
+        }
+
+        .storybook {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .mac-logo {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .mac-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-family: 'Baskerville', 'Garamond', 'Palatino', serif;
+            font-size: 2.8rem;
+            color: #C77C3E;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: normal;
+            letter-spacing: 0.02em;
+        }
+
+        .chapter {
+            margin: 4rem 0;
+        }
+
+        .chapter-title {
+            font-family: 'Baskerville', 'Garamond', 'Palatino', serif;
+            font-size: 1.6rem;
+            color: #8B7355;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .chapter-title a {
+            color: #8B7355;
+            border-bottom: none;
+            transition: color 0.2s;
+        }
+
+        .chapter-title a:hover {
+            color: #C77C3E;
+            border-bottom: none;
+        }
+
+        .chapter-content {
+            font-size: 14px;
+            line-height: 2;
+            text-indent: 2rem;
+            color: #3E3E3E;
+        }
+
+        a {
+            color: #C77C3E;
+            text-decoration: none;
+            border-bottom: 1px solid #D4A574;
+            transition: border-bottom 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #C77C3E;
+        }
+
+        .pen-mark {
+            position: relative;
+            display: inline;
+            background: transparent;
+        }
+
+        .pen-mark::after {
+            content: '';
+            position: absolute;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            height: 4px;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .pen-mark.purple::after {
+            background: linear-gradient(to right, #963d97 0%, #963d97 100%);
+            transform: rotate(-0.5deg);
+        }
+
+        .pen-mark.green::after {
+            background: linear-gradient(to right, #61bb46 0%, #61bb46 100%);
+            transform: rotate(0.3deg);
+        }
+
+        .pen-mark.orange::after {
+            background: linear-gradient(to right, #f5821f 0%, #f5821f 100%);
+            transform: rotate(-0.4deg);
+        }
+
+        .pen-mark.red::after {
+            background: linear-gradient(to right, #e03a3e 0%, #e03a3e 100%);
+            transform: rotate(0.5deg);
+        }
+
+        .pen-mark.yellow::after {
+            background: linear-gradient(to right, #fdb827 0%, #fdb827 100%);
+            transform: rotate(-0.3deg);
+        }
+
+        .moral {
+            margin-top: 4rem;
+            text-align: center;
+            font-family: 'Baskerville', 'Garamond', 'Palatino', serif;
+            font-size: 1.3rem;
+            color: #8B7355;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .recommendations {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #D4A574;
+        }
+
+        .recommendations h2 {
+            font-family: 'Baskerville', 'Garamond', 'Palatino', serif;
+            font-size: 1.8rem;
+            color: #8B7355;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        .disclaimer {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .provider {
+            margin: 2rem 0;
+        }
+
+        .provider h3 {
+            font-family: 'Baskerville', 'Garamond', 'Palatino', serif;
+            font-size: 1.3rem;
+            color: #C77C3E;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .provider p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #3E3E3E;
+            margin: 0.5rem 0;
+        }
+
+        .references {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #D4A574;
+        }
+
+        .references h2 {
+            font-family: 'Baskerville', 'Garamond', 'Palatino', serif;
+            font-size: 1.8rem;
+            color: #8B7355;
+            margin-bottom: 2rem;
+            font-weight: normal;
+        }
+
+        .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .references li {
+            margin: 1.2rem 0;
+            line-height: 1.8;
+        }
+
+        .references li:before {
+            content: "• ";
+            color: #C77C3E;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1rem;
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .chapter-title {
+                font-size: 1.3rem;
+            }
+
+            .moral {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="storybook">
+        <div class="mac-logo">
+            <img src="/images/frame-image.png" alt="Runs-On Mac" width="400">
+        </div>
+
+        <h1>runs-on: mac</h1>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-one"><a href="#chapter-one">Chapter One: In the Beginning, There Was CI</a></div>
+            <div class="chapter-content">
+                Once upon a time, in the land of software development, a magical practice called <a href="https://martinfowler.com/articles/continuousIntegration.html" target="_blank"><span class="pen-mark purple">Continuous Integration</span></a> was invented. It was a tool to help developers integrate their changes through <a href="https://trunkbaseddevelopment.com/" target="_blank">trunk-based development</a>, weaving together code like threads in a grand tapestry. And lo, companies emerged to solve this challenge, building great machines to run the builds and tests that kept the kingdom's software safe and sound. <a href="https://dora.dev/capabilities/continuous-integration/" target="_blank">Research would later show</a> that elite performers were 2.3 times more likely to use these practices, but that's getting ahead of our story.
+
+                But there was a dark secret: <a href="https://medium.com/agoda-engineering/how-we-manage-200-mac-minis-for-ios-ci-at-agoda-vitaliy-gorbachov-4e67d7189031" target="_blank"><span class="pen-mark red">hosting Mac Minis was damn hard</span></a>. (Spoiler: it still is.) These mysterious silver boxes required special care, specific environments, and a level of infrastructure magic that made even the bravest engineers tremble.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-two"><a href="#chapter-two">Chapter Two: The Mobile Kingdoms</a></div>
+            <div class="chapter-content">
+                Some wise companies decided to focus on the mobile space, at least in their marketing scrolls. They spoke of iOS and Android as if they were unique realms requiring special tools. But the truth was, beneath the banners and proclamations, all their products were fundamentally the same: pipeline processing, environment orchestration, reporting of results, and caching. The same magic, packaged in different boxes.
+
+                In this era, a company called BuddyBuild rose to prominence. But their story took an unexpected turn when they were <a href="https://www.buddybuild.com/blog/buddybuild-is-now-part-of-apple" target="_blank">acquired by Apple</a> in 2018, disappearing behind the great walled garden, their tools absorbed into the empire's private chambers.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-three"><a href="#chapter-three">Chapter Three: The Age of Stagnation</a></div>
+            <div class="chapter-content">
+                And so began a dark age. The incentives to innovate in mobile CI were low. The market was smaller than other ecosystems, and hosting those cursed Mac Minis remained a pain. This resulted in just a few players who poured all their power into sales and marketing machines, consequently atrophying their products. The land of mobile CI barely saw any innovation.
+
+                It was <span class="pen-mark yellow">just the same solution, packaged differently</span>. The whole game became about who could push prices down. Some companies built their own infrastructure to have more cost control, but innovation? None. Zero. Zilch. The kingdom stagnated while its merchants grew fat on promises rather than progress.
+
+                We, dear reader, <span class="pen-mark purple">love innovation</span>. We want to see more of it, not less. And this stagnation made us terribly, deeply uncomfortable.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-four"><a href="#chapter-four">Chapter Four: The Great Unbundling</a></div>
+            <div class="chapter-content">
+                But markets happened. And this, dear reader, is the beauty of capitalism. In October 2018, GitHub <a href="https://techcrunch.com/2018/10/16/github-launches-actions-its-workflow-automation-tool/" target="_blank">introduced GitHub Actions</a>, and GitLab had already <a href="https://handbook.gitlab.com/handbook/company/history/" target="_blank">introduced its CI capabilities</a> back in November 2012. Other Git forges followed suit, each adding their own flavor of automation magic.
+
+                But here's where the story gets interesting: they sliced CI horizontally, separating the "frontend" (the pipeline definitions, the orchestration) from the "backend" (the environments where builds actually run). It was like separating the conductor from the orchestra, allowing different musicians to play the same sheet music.
+
+                And that gave birth to a new market: companies that just provide the runners. With a beautiful twist, moving across these companies was as easy as changing one line in your pipeline configuration. One line! Just change "<a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners" target="_blank"><span class="pen-mark green">runs-on</span></a>" (hence the name of this very website you're reading), and suddenly you're free.
+
+                These new companies had a stronger incentive to build better and cheaper products. Since that day, we've seen a renaissance, with amazing and competitive products finally helping organizations escape the <span class="pen-mark orange">imaginary "vendor lock-in"</span> that mobile CI companies had been selling, moving to a lower layer with better products and more competitive pricing.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-five"><a href="#chapter-five">Chapter Five: The Rise of the Runner Kingdoms</a></div>
+            <div class="chapter-content">
+                These same companies that solved environments for CI found themselves at the dawn of a new era. They began solving environments for <a href="https://www.index.dev/blog/ai-agents-for-coding" target="_blank">agentic coding tools</a>, whose workload could mimic, if not exceed, the demanding nature of CI builds.
+
+                And so they grew stronger, getting better and better at providing reliable environments fast. Meanwhile, the old mobile CI companies did their best to stay afloat, decorating their aging infrastructure (in which they had invested for many years) and rebranding it as "Mobile DevOps" or other shiny new terms.
+
+                But the world had changed. The runners had won.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-six"><a href="#chapter-six">Chapter Six: The Age of Decoupling</a></div>
+            <div class="chapter-content">
+                In this new world, depending on CI-coupled solutions became a dangerous proposition. Why? Because it became increasingly important that solutions and services were decoupled from specific environments.
+
+                Development no longer happened only on CI. It happened on developers' local environments, in cloud development environments, and in remote agentic coding tool environments. The walls between "CI" and "development" were crumbling.
+
+                It became more important than ever that you, dear developer, <span class="pen-mark green">gain back the agency</span> of your automation. That you help our ecosystem move forward by adopting runners from companies dedicated to building a strong, reliable layer upon which innovation can flourish again.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title" id="chapter-seven"><a href="#chapter-seven">Chapter Seven: The Call to Adventure</a></div>
+            <div class="chapter-content">
+                And so, dear reader, we arrive at the present day. You stand at a crossroads. Will you continue to let your tools be coupled to aging platforms that prioritize sales over innovation? Or will you embrace the new world of decoupled runners, where changing providers is as simple as editing a single line?
+
+                The choice is yours. But know this: by <span class="pen-mark red">choosing freedom</span>, by choosing the runner layer, you're not just making a technical decision. You're voting for innovation. You're helping to build an ecosystem where the best products win, not the ones with the biggest marketing budgets.
+
+                You're helping to ensure that the next generation of developers will inherit a world where tools are composable, where vendor lock-in is a relic of the past, and where innovation flourishes because competition is real and meaningful.
+            </div>
+        </div>
+
+        <div class="moral">
+            And they all lived happily ever after... or at least, they had the <span class="pen-mark yellow">freedom to choose</span> their own happiness.
+        </div>
+
+        <div class="recommendations">
+            <h2>Mac Runner Providers</h2>
+            <div class="disclaimer">
+                Disclaimer: We list <a href="https://namespace.so" target="_blank">Namespace.so</a> first because we use them ourselves. They are currently the only provider with a programmatic interface/API to build upon, and their product and team are amazing to work with. The other providers listed below are also excellent choices depending on your specific needs.
+            </div>
+            <div class="disclaimer">
+                Note: Provider descriptions are derived from their websites and may become outdated. If you notice outdated information or would like to add new providers, please open a pull request to <a href="https://github.com/tuist/runs-on-mac" target="_blank">this repository</a>.
+            </div>
+
+            <div class="provider">
+                <h3><a href="https://namespace.so" target="_blank">Namespace.so</a></h3>
+                <p>Purpose-built infrastructure for build and test workloads with native Apple Silicon support (M4 Pro and M2 Pro). Offers a programmatic API, remote SSH/VNC debugging, built-in observability, and SOC 2 Type II compliance. Flat-rate pricing based on concurrent jobs with unlimited minutes.</p>
+            </div>
+
+            <div class="provider">
+                <h3><a href="https://cirrus-runners.app" target="_blank">Cirrus Runners</a></h3>
+                <p>Managed large runners featuring macOS M4 Pro with proprietary virtualization technology. Fixed monthly pricing with unlimited minutes and limited concurrency. Recently achieved #1 performance rating for x64 machines according to independent benchmarks.</p>
+            </div>
+
+            <div class="provider">
+                <h3><a href="https://www.warpbuild.com" target="_blank">WarpBuild</a></h3>
+                <p>High-performance runners supporting Linux, Windows, and macOS (M2 Pro). Offers 50-90% cost savings compared to official runners with 25-70% reduction in build times. Features 150GB disk storage, unlimited fast caches, and live SSH debugging. Available as managed service or self-hosted.</p>
+            </div>
+
+            <div class="provider">
+                <h3><a href="https://depot.dev" target="_blank">Depot</a></h3>
+                <p>Supports macOS M2 builds with per-second billing and unlimited cache storage. Half the price of hosted GitHub runners with fast container builds and remote debugging capabilities.</p>
+            </div>
+
+            <div class="provider">
+                <h3><a href="https://www.macstadium.com" target="_blank">MacStadium</a></h3>
+                <p>Infrastructure provider offering both dynamic ephemeral runners and static runners with Orka virtualization. Provides Mac hardware rental starting at $199/month for M4 Mac mini with automatic scaling based on CI demand.</p>
+            </div>
+        </div>
+
+        <div class="references">
+            <h2>References & Further Reading</h2>
+            <ul>
+                <li><a href="https://martinfowler.com/articles/continuousIntegration.html" target="_blank">Continuous Integration by Martin Fowler</a> - The foundational article on CI practices</li>
+                <li><a href="https://trunkbaseddevelopment.com/" target="_blank">Trunk Based Development</a> - Comprehensive guide to trunk-based development practices</li>
+                <li><a href="https://dora.dev/capabilities/continuous-integration/" target="_blank">DORA Research on Continuous Integration</a> - Research showing trunk-based development's correlation with elite performance</li>
+                <li><a href="https://techcrunch.com/2018/10/16/github-launches-actions-its-workflow-automation-tool/" target="_blank">GitHub Launches Actions (October 2018)</a> - TechCrunch announcement of GitHub Actions</li>
+                <li><a href="https://handbook.gitlab.com/handbook/company/history/" target="_blank">History of GitLab</a> - GitLab's journey from 2011, including CI introduction in November 2012</li>
+                <li><a href="https://www.buddybuild.com/blog/buddybuild-is-now-part-of-apple" target="_blank">BuddyBuild Joins Apple (2018)</a> - The announcement of BuddyBuild's acquisition</li>
+                <li><a href="https://medium.com/agoda-engineering/how-we-manage-200-mac-minis-for-ios-ci-at-agoda-vitaliy-gorbachov-4e67d7189031" target="_blank">Managing 200 Mac Minis at Agoda</a> - Real-world challenges of Mac infrastructure at scale</li>
+                <li><a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners" target="_blank">GitHub Self-Hosted Runners Documentation</a> - Guide to decoupling CI from specific providers</li>
+                <li><a href="https://github.com/neysofu/awesome-github-actions-runners" target="_blank">Awesome GitHub Actions Runners</a> - Comprehensive list of third-party runner providers showing the vibrant ecosystem</li>
+                <li><a href="https://ionic.io/blog/why-is-mobile-ci-cd-so-difficult" target="_blank">Why is Mobile CI/CD So Difficult?</a> - Challenges of mobile build infrastructure including iOS Mac hardware requirements</li>
+                <li><a href="https://circleci.com/blog/ci-cd-requirements-for-mobile/" target="_blank">CI/CD Requirements for Mobile Applications</a> - Platform-specific complexity and infrastructure challenges for iOS and Android</li>
+                <li><a href="https://hbr.org/1999/03/unbundling-the-corporation" target="_blank">Unbundling the Corporation</a> - Harvard Business Review article on how vertically integrated companies break apart into horizontally integrated specialists</li>
+                <li><a href="https://runs-on.com/benchmarks/github-actions-runners/" target="_blank">GitHub Actions Runners Benchmark</a> - Independent performance comparisons of third-party runner providers</li>
+                <li><a href="https://www.index.dev/blog/ai-agents-for-coding" target="_blank">AI Agents for Coding</a> - The rise of agentic coding tools and their infrastructure needs</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
