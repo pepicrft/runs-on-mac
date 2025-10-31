@@ -1,39 +1,31 @@
-# Runs-On-Mac
+# runs-on: mac
 
-A Disney-style storytelling site about the history of CI, mobile CI, and the runs-on revolution.
+**One Line. Infinite Freedom.**
 
-## Setup
+A storytelling site about the evolution of CI/CD, the rise of GitHub Actions runners, and how developers gained freedom by escaping vendor lock-in.
 
-This project uses [Mise](https://mise.jdx.dev/) for managing Node.js and pnpm versions.
+Visit: [runs-on-mac.tuist.io](https://runs-on-mac.tuist.io)
 
-```bash
-# Install dependencies
-mise install
-pnpm install
-```
+## What's This About?
+
+This site tells the tale of:
+- How CI evolved from stagnant mobile platforms to a vibrant runner ecosystem
+- Why GitHub Actions' unbundling created true freedom for developers
+- How changing providers is as simple as editing one line: `runs-on:`
 
 ## Development
 
 ```bash
-# Start the development server
-pnpm start
+mise install           # Install Node.js & pnpm
+pnpm install          # Install dependencies
+pnpm start            # Start dev server at http://localhost:8080
+pnpm build            # Build to _site/
 ```
 
-Visit http://localhost:8080 to view the site.
+## Contributing
 
-## Build
-
-```bash
-# Build the static site
-pnpm build
-```
-
-The output will be in the `_site` directory.
-
-## Story
-
-This site tells the tale of how CI evolved from monolithic mobile CI platforms to the modern era of decoupled runners, where changing providers is as simple as updating a single line in your configuration.
+Provider descriptions may become outdated. To update or add providers, open a PR!
 
 ## Credits
 
-- Macintosh 128K image: Photo by [Alexander Shatov](https://unsplash.com/@alexbemore) on [Unsplash](https://unsplash.com/photos/PHH_0uw9-Qw)
+Crafted by [Pedro Piñera](https://pepicrft.me)
