@@ -4,7 +4,7 @@
 
 A storytelling site about the evolution of CI/CD, the rise of GitHub Actions runners, and how developers gained freedom by escaping vendor lock-in.
 
-Visit: [runs-on-mac.tuist.io](https://runs-on-mac.tuist.io)
+Visit: [runs-on-mac.com](https://runs-on-mac.com)
 
 ## What's This About?
 
